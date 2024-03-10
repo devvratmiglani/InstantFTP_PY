@@ -11,6 +11,8 @@ pip install -e .
 It is now installed in editable mode using the '-e' parameter, using this you can change the the credentials in `InstantFTP_PY\ftpy\__init__.py`
 
 ## Usage
+Run in temrinal as:
 ```sh
 ftpy
 ```
+It will share the current folder of the session on your local network
