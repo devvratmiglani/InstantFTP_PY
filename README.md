@@ -8,12 +8,20 @@ git clone https://github.com/devvratmiglani/InstantFTP_PY.git
 cd InstantFTP_PY
 pip install -e .
 ```
+or
+```sh
+pip install git+https://github.com/devvratmiglani/InstantFTP_PY.git
+```
 It is now installed in editable mode using the '-e' parameter, using this you can change the the credentials in **`InstantFTP_PY\ftpy\__init__.py`**
 
 ## Usage
 Run in temrinal as:
 ```sh
 ftpy
+```
+port already in use?
+```sh
+ftpy -p 2122
 ```
 It will share the current folder of the session on your local network.
 
