@@ -10,21 +10,21 @@ import sys
 import os
 
 def main():
-    class Unbuffered:
-        def __init__(self, stream):
-            self.stream = stream
+    if os.name == "nt":
+        class Unbuffered:
+            def __init__(self, stream):
+                self.stream = stream
 
-        def write(self, data):
-            self.stream.write(data)
-            self.stream.flush()
+            def write(self, data):
+                self.stream.write(data)
+                self.stream.flush()
 
-        def flush(self):
-            self.stream.flush()
+            def flush(self):
+                self.stream.flush()
 
-    sys.stdout = Unbuffered(sys.stdout)
-    sys.stderr = Unbuffered(sys.stderr)
+        sys.stdout = Unbuffered(sys.stdout)
+        sys.stderr = Unbuffered(sys.stderr)
 
-    os.environ["PYTHONUNBUFFERED"] = 'TRUE'
     parser = argparse.ArgumentParser(description='InstantFTP_PY - A blazingly performant FTP Server')
     parser.add_argument('--port','-p',help='Port to start server on (default 2121)')
     args = parser.parse_args()
