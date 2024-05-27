@@ -4,15 +4,22 @@ from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import ThreadedFTPServer
 from FindMyIP import internal
 from colorama import Fore
+import argparse
 import segno
 import sys
 
 def main():
+    parser = argparse.ArgumentParser(description='InstantFTP_PY - A blazingly performant FTP Server')
+    parser.add_argument('--port','-p',help='Port to start server on (default 2121)')
+    args = parser.parse_args()
+    port = 2121
+    if args.port is not None:
+    	port = args.port
+
     # Set up an authorizer with a user and password
     authorizer = DummyAuthorizer()
     authorizer.add_user("username", "password", ".", perm="elradfmw")
-    authorizer.add_user("vlc", "password", ".", perm="elradfmw") ## adds user with password
-    authorizer.add_anonymous(".") ## adds anonymous user
+    authorizer.add_anonymous(".") ## adds anonymous user read only
 
     # Instantiate the FTP handler with the given authorizer
     handler = FTPHandler
@@ -24,9 +31,9 @@ def main():
 
     # Create and start the FTP server
     hostip = internal()
-    server = ThreadedFTPServer((hostip, 2121), handler)
-    print(f"{Fore.GREEN}[+] FTP server running at ftp://username:password@{hostip}:2121{Fore.RESET}")
-    qr = segno.make(f"ftp://username:password@{internal()}:2121")
+    server = ThreadedFTPServer((hostip, port), handler)
+    print(f"{Fore.GREEN}[+] FTP server running at ftp://username:password@{hostip}:{port}{Fore.RESET}")
+    qr = segno.make(f"ftp://{internal()}:{port}")
     qr.terminal(border=3)
     server.max_cons = 256
     server.max_cons_per_ip = 20
