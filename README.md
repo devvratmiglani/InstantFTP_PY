@@ -46,4 +46,5 @@ sudo service firewall restart
 # may require 
 # modprobe ip_conntrack_ftp
 ```
+Use this bash file in `InstantFTP_PY/firewall/ftp_firewall.sh`
 
