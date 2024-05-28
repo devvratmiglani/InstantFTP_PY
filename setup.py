@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="ftpy",
-    version="1.0.0",
+    version="1.5.0",
     description="A Simple Python application FTP server for sharing current folder with fast startup and multiconnection boosts for faster transmission.",
     url="https://github.com/devvratmiglani",
     author="Devvrat Miglani",
