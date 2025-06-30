@@ -1,5 +1,5 @@
 pyftpdlib>=1.5.9
-findmyip>=1.2.0
+findmyip==1.2.0
 colorama>=0.4.6
 segno>=1.6.0
 argparse
