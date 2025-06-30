@@ -19,6 +19,7 @@ setup(
         "findmyip",
         "colorama",
         "segno",
+        "FindMyIP==1.2.0"
     ],
     entry_points = {
         'console_scripts':[
