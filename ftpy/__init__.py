@@ -52,5 +52,5 @@ def main():
     qr = segno.make(f"ftp://{internal()}:{port}")
     qr.terminal(border=3)
     server.max_cons = 256
-    server.max_cons_per_ip = 20
+    server.max_cons_per_ip = 64
     server.serve_forever()
