@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="ftpy",
-    version="1.5.0",
+    version="2.0",
     description="A Simple Python application FTP server for sharing current folder with fast startup and multiconnection boosts for faster transmission.",
     url="https://github.com/devvratmiglani",
     author="Devvrat Miglani",
@@ -11,7 +11,7 @@ setup(
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.14",
     ],
     packages=["ftpy"],
     install_requires=[
@@ -19,7 +19,8 @@ setup(
         "findmyip",
         "colorama",
         "segno",
-        "FindMyIP==1.2.0"
+        "FindMyIP==1.2.0",
+        "zeroconf"
     ],
     entry_points = {
         'console_scripts':[
